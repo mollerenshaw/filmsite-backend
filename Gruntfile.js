@@ -16,24 +16,24 @@ module.exports = function(grunt) {
           quiet: false, // Optionally suppress output to standard out (defaults to false)
           clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
         },
-        src: ['app/test/**/*.js']
+        src: ['test/**/*.js']
       }
     },
       
     cucumberjs: {
-      src: 'path/to/features',
+      src: 'features',
       options: {
-        steps: "path/to/step_definitions"
+        steps: "features/step_definitions"
       }
     },
       
     jshint: {
-      files: ['Gruntfile.js', 'app/**/*.js'],
+      files: ['Gruntfile.js', '**/*.js'],
       options: { }
     },
 
     watch: {
-      files: ['<%= jshint.files %>'],
+      files: ['<%= **/*.js %>'],
       tasks: ['jshint', 'mochaTest'],
       options: {
         spawn: false,
