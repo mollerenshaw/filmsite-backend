@@ -2,7 +2,7 @@
   "name": "filmsite-backend",
   "version": "0.0.1",
   "description": "The Node.JS Backend for my movie night website.",
-  "main": "server.js",
+  "main": "lib/server.js",
   "private": "true",
   "scripts": {
     "start": "node lib/server.js",
@@ -16,14 +16,16 @@
   },
   "devDependencies": {
     "chai": "~3.4.0",
+    "cucumber": "~0.8.1",
     "mocha": "~2.3.3",
-    "grunt-cli": "~0.1.13",
-    "grunt-mocha-test": "~0.12.7",
     "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-jshint": "~0.11.3",
-    "cucumber": "~0.8.1",
     "grunt-cucumber": "~0.3.0",
+    "grunt-js-beautify": "~0.1.4",
+    "grunt-mocha-test": "~0.12.7",
+    "js-beautify": "~1.5.10",
     "jshint": "~2.8.0"
   }
 }
