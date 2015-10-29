@@ -4,7 +4,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-    
+  grunt.loadNpmTasks('grunt-cucumber');
+
   grunt.initConfig({
     // Configure a mochaTest task
     mochaTest: {
@@ -16,6 +17,13 @@ module.exports = function(grunt) {
           clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
         },
         src: ['app/test/**/*.js']
+      }
+    },
+      
+    cucumberjs: {
+      src: 'path/to/features',
+      options: {
+        steps: "path/to/step_definitions"
       }
     },
       
