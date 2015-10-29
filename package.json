@@ -13,10 +13,10 @@
     "body-parser": "~1.0.1"
   },
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-cli": "~0.1.13",
     "chai": "~3.4.0",
-    "mocha": "~2.3.3"
+    "mocha": "~2.3.3",
+    "grunt-cli": "~0.1.13",
+    "grunt-mocha-test": "~0.12.7",
+    "grunt": "~0.4.5"
   }
 }
