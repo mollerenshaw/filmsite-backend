@@ -25,10 +25,8 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
-      files: ['**/*.js'],
+      files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
       options: {
-        console: true,
-        module: true
       }
     },
     js_beautify: {
@@ -38,15 +36,16 @@ module.exports = function (grunt) {
         indent_size: 2,
         replace: true
       },
-      files: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js', 'features/step_definitions/*.js']
+      files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js']
     },
     watch: {
-      files: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js', 'features/step_definitions/*.js'],
+      files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
       tasks: ['jshint', 'mochaTest'],
       options: {
         spawn: false
       },
     }
   });
-  grunt.registerTask('default', ['mochaTest', 'jshint']);
+
+  grunt.registerTask('default', ['mochaTest', 'jshint', 'js_beautify']);
 };
