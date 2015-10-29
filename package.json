@@ -2,7 +2,7 @@
   "name": "filmsite-backend",
   "version": "0.0.1",
   "description": "The Node.JS Backend for my movie night website.",
-  "main": "Gruntfile.js",
+  "main": "app/server.js",
   "scripts": {
     "test": "grunt test"
   },
