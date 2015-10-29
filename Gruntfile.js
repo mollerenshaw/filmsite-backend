@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       }
     },
-      
+
     cucumberjs: {
       src: 'features',
       options: {
@@ -28,8 +28,11 @@ module.exports = function(grunt) {
     },
       
     jshint: {
-      files: ['Gruntfile.js', '**/*.js'],
-      options: { }
+      files: ['**/*.js'],
+      options: { 
+        console: true,
+        module: true
+      }
     },
 
     watch: {
