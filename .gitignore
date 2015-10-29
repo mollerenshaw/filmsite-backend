@@ -4,7 +4,9 @@
 
 # Installed third-party dependencies.
 node_modules/
-bower_components/
+
+# Log files.
+**/*.log
 
 # Vagrant VM config.
 .vagrant/
