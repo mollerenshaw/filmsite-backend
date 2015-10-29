@@ -1,0 +1,13 @@
+
+# VIM swap files.
+*.swp
+
+# Installed third-party dependencies.
+node_modules/
+bower_components/
+
+# Vagrant VM config.
+.vagrant/
+
+# OSX file.
+.DS_Store
