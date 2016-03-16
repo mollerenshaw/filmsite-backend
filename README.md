@@ -1,11 +1,55 @@
-# Movie Night API
+# Movie Night microservice
 
-## Hosting
+## Using Docker to run the service
 
-Boot the VM using Vagrant, and log in:
+### Create a Docker machine to run the containers
 
-    vagrant up
-    vagrant ssh
+Create a Docker machine that can run the container (OSX and Windows won't run Containers directly). Once it's running, tell Docker about it, so we can run commands there transparently.
+
+```
+docker-machine create --driver virtualbox filmsite-machine
+eval "$(docker-machine env filmsite-machine)"
+```
+
+### Build and run the Docker image in a container
+
+Build the image, with a tag of latest:
+
+```
+docker build -t mollerenshaw/filmsite-backend .
+```
+
+List the built images using ```docker images```.
+
+Run the image in a container on the machine:
+
+```
+docker run -d -P --name fs-api mollerenshaw/filmsite-backend
+```
+
+List the running containers using ```docker ps```.
+
+### Tail the logs from the container
+
+```
+docker logs --follow fs-api
+```
+
+### Connect to the service
+
+Work out what port the container's exposed port has been mapped to:
+
+```
+docker port fs-api
+```
+
+Work out which IP the machine is running on:
+
+```
+docker-machine ip filmsite-machine
+```
+
+Then, you know, go to ```http://thatip:thatport```.
 
 ## Starting the API
 
