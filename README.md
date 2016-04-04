@@ -21,10 +21,10 @@ docker build -t mollerenshaw/filmsite-backend .
 
 List the built images using ```docker images```.
 
-Run the image in a container on the machine, making the container's port 8080 available on the host at port 80:
+Run the image in a container on the machine, making the container's port 8080 available on the host. We also pass in the Mongo connection details (credentials temporarily passed on command line; this will change to a secrets volume):
 
 ```
-docker run -d -p 80:8080 --name fs-api mollerenshaw/filmsite-backend
+docker run -d -p 8080:8080 --name fs-api -e MONGO_HOST=localhost:27017 -e MONGO_USER=someuser -e MONGO_PASSWORD=somepassword mollerenshaw/filmsite-backend
 ```
 
 List the running containers using ```docker ps```.
