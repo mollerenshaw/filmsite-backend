@@ -4,7 +4,7 @@ ADD package.json package.json
 RUN npm install  
 ADD . .
 
-ENV PORT=8081
+ENV PORT=8080
 
 EXPOSE $PORT
 
