@@ -21,10 +21,10 @@ docker build -t mollerenshaw/filmsite-backend .
 
 List the built images using ```docker images```.
 
-Run the image in a container on the machine:
+Run the image in a container on the machine, making the container's port 8080 available on the host at port 80:
 
 ```
-docker run -d -P --name fs-api mollerenshaw/filmsite-backend
+docker run -d -p 80:8080 --name fs-api mollerenshaw/filmsite-backend
 ```
 
 List the running containers using ```docker ps```.
