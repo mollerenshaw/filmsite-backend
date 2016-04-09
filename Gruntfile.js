@@ -4,6 +4,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-cucumber');
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-js-beautify');
   grunt.initConfig({
     // Configure a mochaTest task
@@ -38,9 +39,14 @@ module.exports = function (grunt) {
       },
       files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js']
     },
+    exec: {
+      relaunch: {
+        cmd: './relaunch.sh'
+      }
+    },
     watch: {
       files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
-      tasks: ['jshint', 'mochaTest'],
+      tasks: ['jshint', 'mochaTest', 'exec:relaunch'],
       options: {
         spawn: false
       },
