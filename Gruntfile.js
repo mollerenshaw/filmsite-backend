@@ -26,8 +26,9 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
-      files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
+      files: ['*.js*', 'lib/**/*.js*', 'test/**/*.js*', 'features/**/*.js*'],
       options: {
+        esnext: true
       }
     },
     js_beautify: {
@@ -37,7 +38,7 @@ module.exports = function (grunt) {
         indent_size: 2,
         replace: true
       },
-      files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js']
+      files: ['*.js*', 'lib/**/*.js*', 'test/**/*.js*', 'features/**/*.js*']
     },
     exec: {
       relaunch: {
@@ -46,7 +47,7 @@ module.exports = function (grunt) {
     },
     watch: {
       files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
-      tasks: ['jshint', 'mochaTest', 'exec:relaunch'],
+      tasks: ['jshint', 'exec:relaunch'],
       options: {
         spawn: false
       },
