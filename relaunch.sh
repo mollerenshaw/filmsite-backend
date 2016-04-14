@@ -10,6 +10,7 @@ docker run -d \
     -e MONGO_HOST='mongodb://fs-db:27017' \
     -e MONGO_USER='some_mongo_user' \
     -e MONGO_PASSWORD='some_mongo_password' \
+    -e OMDB_HOST='www.omdbapi.com' \
     --net=filmsite-network \
     --name fs-api \
     mollerenshaw/filmsite-backend
