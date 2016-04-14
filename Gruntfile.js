@@ -47,7 +47,7 @@ module.exports = function (grunt) {
     },
     watch: {
       files: ['*.js', 'lib/**/*.js', 'test/**/*.js', 'features/**/*.js'],
-      tasks: ['jshint', 'exec:relaunch'],
+      tasks: ['js_beautify', 'jshint', 'exec:relaunch'],
       options: {
         spawn: false
       },
