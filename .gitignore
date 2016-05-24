@@ -1,4 +1,9 @@
 
+# IDE files
+.settings/
+.project
+
+
 # VIM swap files.
 *.swp
 
