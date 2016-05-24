@@ -1,7 +1,7 @@
 'use strict';
 
 var request = require('request');
-
+var expect = require('chai').expect;
 
 module.exports = function () {
 
@@ -31,11 +31,11 @@ module.exports = function () {
 
   });
     
-  this.Then(/^the response is a list containing ([0-9]+) (.+)s$/, function (resourceCount, resourceType, callback) {
+  this.Then(/^the response is a list containing (\d+) (.+)s$/, function (resourceCount, resourceType, callback) {
  
     console.log("Then there should be " + resourceCount + " " + resourceType + "s.");
 
-    console.log("Res: " + returnedResources);
+    expect(returnedResources.length).to.equal(parseInt(resourceCount));
       
     // Always finish with a call to callback().
     callback();
