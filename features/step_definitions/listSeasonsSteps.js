@@ -6,7 +6,15 @@ var expect = require('chai').expect;
 module.exports = function () {
 
   var returnedResources;
-    
+
+  this.Before(function() {
+    console.log("Before!");
+  });
+
+  this.After(function() {
+    console.log("After!");
+  });
+
   this.Given(/^the system knows about the following (.+)s:$/, function (resourceType, resources, callback) {
 
     console.log("GIVEN: " + resourceType);
