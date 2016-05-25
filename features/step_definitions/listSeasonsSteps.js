@@ -60,8 +60,6 @@ module.exports = function () {
     
   this.Then(/^the response is a list containing (\d+) (.+)s$/, function (resourceCount, resourceType, callback) {
  
-    console.log("Then there should be " + resourceCount + " " + resourceType + "s.");
-
     expect(returnedResources.length).to.equal(parseInt(resourceCount));
       
     // Always finish with a call to callback().
@@ -70,12 +68,10 @@ module.exports = function () {
 
   this.Then(/^one (.+) has the following attributes:$/, function (resourceType, attributes, callback) {
  
-    console.log("ATTRS");
-      
     // Always finish with a call to callback().
-    callback();
+    callback(null, 'pending');
   });
-    
+
   /**
    * Constructs HTTP options for a request of a given type against a given end point.
    */
