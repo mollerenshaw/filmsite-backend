@@ -19,9 +19,24 @@ module.exports = function () {
     request.delete(url);
   });
 
-  this.Given(/^the system knows about the following (.+)s:$/, function (resourceType, resources, callback) {
+  this.Given(/^the system knows about the following (.+)s:$/, function (resourceType, resourcesToCreate, callback) {
 
-    console.log("GIVEN: " + resourceType);
+    var url = resourceUrl(resourceType);
+
+    var rows = resourcesToCreate.hashes();
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+
+      var options = {
+        url: url,
+        json: {
+          title: row.title,
+          description: row.description
+        }
+      };
+        
+      request.post(options);
+    }
 
     // Always finish with a call to callback().
     callback();
@@ -29,7 +44,7 @@ module.exports = function () {
 
   this.When(/^the client requests a list of (.+)s$/, function (resourceType, callback) {
 
-    var options = httpOptions(resourceType);
+    var url = resourceUrl(resourceType);
 
     var cb = function (error, response, body) {
 
@@ -39,7 +54,7 @@ module.exports = function () {
       callback();
     };
       
-    request(options, cb);
+    request(url, cb);
 
   });
     
@@ -64,12 +79,9 @@ module.exports = function () {
   /**
    * Constructs HTTP options for a request of a given type against a given end point.
    */
-  var httpOptions = function(resourceType) {
+  var resourceUrl = function(resourceType) {
 
-    var options = {
-      url: 'http://192.168.99.100:8080/api/' + resourceType
-    };
-    
-    return options;
+    return 'http://192.168.99.100:8080/api/' + resourceType;
+
   };
 };
