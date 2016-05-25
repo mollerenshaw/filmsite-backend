@@ -8,11 +8,15 @@ module.exports = function () {
   var returnedResources;
 
   this.Before(function() {
-    console.log("Before!");
+    // Delete all the seasons before the tests run.
+    var url = resourceUrl("season");
+    request.delete(url);
   });
 
   this.After(function() {
-    console.log("After!");
+    // Delete all the seasons after the tests run.
+    var url = resourceUrl("season");
+    request.delete(url);
   });
 
   this.Given(/^the system knows about the following (.+)s:$/, function (resourceType, resources, callback) {
