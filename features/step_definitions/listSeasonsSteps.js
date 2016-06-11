@@ -8,15 +8,11 @@ module.exports = function () {
   var returnedResources;
 
   this.Before(function() {
-    // Delete all the seasons before the tests run.
-    var url = resourceUrl("season");
-    request.delete(url);
+    cleanUp("season");
   });
 
   this.After(function() {
-    // Delete all the seasons after the tests run.
-    var url = resourceUrl("season");
-    request.delete(url);
+    cleanUp("season");
   });
 
   this.Given(/^the system knows about the following (.+)s:$/, function (resourceType, resourcesToCreate, callback) {
@@ -80,4 +76,10 @@ module.exports = function () {
     return 'http://192.168.99.100:8080/api/' + resourceType;
 
   };
+  var cleanUp = function(resourceType) {
+    // Delete all the seasons before the tests run.
+    var url = resourceUrl(resourceType);
+    console.log("Cleaning up at " + url);
+    request.delete(url);
+  }
 };
