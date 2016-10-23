@@ -1,4 +1,4 @@
-FROM nodesource/node:4.0
+FROM node:6.9.1
 
 ADD package.json package.json  
 RUN npm install  
